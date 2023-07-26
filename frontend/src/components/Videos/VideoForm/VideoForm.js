@@ -9,6 +9,7 @@ export default function VideoForm(){
     const video = useSelector(state => getVideo(videoId)(state));
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
+    const [message, setMessage] = useState("");
     const formType = videoId ? "Update" : "Create";
 
     useEffect(() => {
@@ -21,14 +22,20 @@ export default function VideoForm(){
         }
     }, [videoId, video]);
 
-    function handleSubmit(e){
+    async function handleSubmit(e) {
         e.preventDefault();
-        if(formType === "Update"){
-            dispatch(updateVideo({id: videoId, title: title, description: description}));
-        } else {
-            dispatch(createVideo({title: title, description: description}));
+
+        try {
+          if (formType === "Update") {
+            await dispatch(updateVideo({ id: videoId, title: title, description: description }));
+          } else {
+            await dispatch(createVideo({ title: title, description: description }));
+          }
+          setMessage(`${formType} Successful!`);
+        } catch (err) {
+          setMessage(`${formType} Failed!`);
         }
-    }
+      }
 
     return(
         <form onSubmit={handleSubmit}>
@@ -41,6 +48,7 @@ export default function VideoForm(){
             </label>
             {/* TODO: Handle file upload */}
             <input type="submit" value={`${formType} Video`} />
+            <div>{message}</div>
         </form>
     )
 }
