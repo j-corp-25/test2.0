@@ -1,0 +1,98 @@
+.signup-container-full {
+  width: 450px;
+  min-height: 500px;
+  padding: 48px 40px 36px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.signup-header {
+  text-align: center;
+}
+.signup-header ~ .signup-subheader {
+  text-align: center;
+  margin-top: 5px;
+}
+
+.signup-form > button {
+  background-color: #4285f4;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.signup-input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  margin: 2px;
+  color: rgba(32, 33, 36, 1);
+  height: 60px;
+}
+
+.first-name {
+  margin-top: 38px;
+  margin-bottom: 20px;
+}
+
+button.next-button-signup {
+  position: absolute;
+  bottom: 45px;
+  border-radius: 5px;
+  width: 80px;
+  right: 40px;
+}
+
+button.back-button-signup {
+    position: absolute;
+    bottom: 45px;
+    /* border: 10px; */
+    border-radius: 5px;
+    width: 80px;
+  }
+
+
+  button.signup-button {
+    right: 40px;
+    position: absolute;
+    bottom: 45px;
+    border-radius: 5px;
+    width: 80px;
+  }
+
+.email-input-signup, .username-input-signup, .password-input-signup {
+    margin-top: 16px;
+}
+
+.error-message-sign-up {
+  color: red;
+  font-size: 12px;
+}
+
+.error-message-sign-up-fn {
+  color: red;
+  font-size: 12px;
+  width: fit-content;
+  position: absolute;
+  bottom: 315px;
+}
+
+.password-input-signup {
+
+}
+
+
+.error-message-sign-up-email, .error-message-sign-up-pass, .error-message-sign-up-user {
+  color: red;
+  font-size: 12px;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+}
