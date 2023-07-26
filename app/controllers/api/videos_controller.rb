@@ -1,5 +1,6 @@
 class Api::VideosController < ApplicationController
   before_action :require_login, only: [:create, :update, :destroy]
+
   def index
     @videos = Video.all
     render :index
@@ -33,7 +34,7 @@ class Api::VideosController < ApplicationController
 
   def destroy
     @video = current_user.videos.find(params[:id])
-    @video.delete
+    @video.destroy
     render :show
   end
 
@@ -42,6 +43,4 @@ class Api::VideosController < ApplicationController
   def video_params
     params.require(:video).permit(:title, :description)
   end
-
-
 end
