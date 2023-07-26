@@ -112,30 +112,6 @@ button.back-button {
   color: red;
 
 }
-/* .signin-button {
-  background-color: #4285f4;
-  color: white;
-  padding: 10px;
-  border: none;
-  cursor: pointer;
-}
-
-.signin-button {
-  background-color: #4285f4;
-  color: white;
-  padding: 10px;
-  border: none;
-  cursor: pointer;
-
-}
-
-.next-button {
-  background-color: #4285f4;
-  color: white;
-  padding: 10px;
-  border: none;
-  cursor: pointer;
-} */
 .signin-form > button {
   background-color: #4285f4;
   color: white;
@@ -150,63 +126,10 @@ button.back-button {
   bottom: 250px;
 }
 
-
-/* .page-container {
-  width: 300px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-}
-
-.signin-container {
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.logo-container {
-  margin-bottom: 20px;
-}
-
-.signin-header {
-  text-align: center;
-}
-
-.signin-subheader {
-  margin-top: 10px;
-}
-
-.err-message {
+.err-message-sign-in-pass {
+  width: fit-content;
+  position: absolute;
+  font-size: 12px;
   color: red;
+  bottom: 250px
 }
-
-.signin-input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-}
-
-.email-input {
-  margin-bottom: 20px;
-}
-
-.password-input {
-  margin-bottom: 10px;
-}
-
-.signin-button {
-  background-color: #4285f4;
-  color: white;
-  padding: 10px;
-  border: none;
-  cursor: pointer;
-}
-
-.next-button {
-  background-color: #4caf50;
-  color: white;
-  padding: 10px;
-  border: none;
-  cursor: pointer;
-} */
