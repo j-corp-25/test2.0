@@ -50,16 +50,6 @@ const SignUpForm = () => {
 
     setErrors(newErrors);
 
-    //   if (newErrors.email) {
-    //   delete newErrors.email;
-    // }
-    // if (newErrors.password) {
-    //   delete newErrors.password;
-    // }
-    // if (newErrors.username) {
-    //   delete newErrors.username;
-    // }
-
     if (Object.keys(newErrors).length === 0) {
       return dispatch(
         sessionActions.signup({
@@ -72,10 +62,9 @@ const SignUpForm = () => {
       ).catch(async (res) => {
         let data;
         try {
-          // .clone() essentially allows you to read the response body twice
           data = await res.clone().json();
         } catch {
-          data = await res.text(); // Will hit this case if, e.g., server is down
+          data = await res.text();
         }
         if (data?.errors) setErrors(data.errors);
         else if (data) setErrors([data]);
@@ -84,21 +73,9 @@ const SignUpForm = () => {
     }
     return setErrors(newErrors);
   };
-  // if (!response.ok) {
-  //   let errors;
-  //   if (response.status === 422) {
-  //     const data = await response.json();
-  //     errors = data.errors; // This is now a list of strings
-  //   } else {
-  //     errors = ["An unknown error occurred. Please try again."];
-  //   }
-  //   setErrors({ ...newErrors, server: errors.join(" ") });
-  // }
 
   const handleNext = (e) => {
     e.preventDefault();
-
-    console.log("handleNext was called");
 
     let newErrors = {};
 
@@ -184,22 +161,15 @@ const SignUpForm = () => {
               >
                 Back
               </button>
-              {/* {errors.email && (
-                <div className="error-message-sign-up-email">
-                  {errors.email}
-                </div>
-              )} */}
-              {/* {errors.server && (
-                <div className="error-message-sign-up-server">
-                  {errors.server}
-                </div>
-              )} */}
 
               <ul>
                 {Object.keys(errors).map((key) => {
-                  if ( key !== "password" && key!== "username" ) {
-                    // Exclude email errors
-                    return <div className="error-message-sign-up-email  " key={key}>{errors[key]}</div>;
+                  if (key !== "password" && key !== "username") {
+                    return (
+                      <div className="error-message-sign-up-email  " key={key}>
+                        {errors[key]}
+                      </div>
+                    );
                   }
                   return null;
                 })}

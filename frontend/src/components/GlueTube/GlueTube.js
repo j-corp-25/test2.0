@@ -2,7 +2,7 @@ import React from "react";
 // import { useState } from 'react';
 import "./GlueTube.css";
 import NavBar from "../NavBar/NavBar";
-import VideoList from "../VideoList/VideoList";
+import VideoList from "../VideoList/VideoIndex/VideoList";
 
 
 // import ProductTable from './ProductTable';
