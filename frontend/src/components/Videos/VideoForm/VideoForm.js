@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "./VideoForm.css"
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -8,6 +9,7 @@ import {
   updateVideo,
 } from "../../../store/videos";
 
+
 export default function VideoForm() {
   const dispatch = useDispatch();
   const videoId = useParams().videoId;
@@ -15,7 +17,7 @@ export default function VideoForm() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [message, setMessage] = useState("");
-  const formType = videoId ? "Update" : "Create";
+  const formType = videoId ? "Update Video" : "Upload ";
 
   useEffect(() => {
     if (videoId) {
@@ -45,6 +47,7 @@ export default function VideoForm() {
   }
 
   return (
+    <div className="video-page-form-container">
 
     <form onSubmit={handleSubmit} className="video-form">
       <h1 className="video-form-title">{formType} Video</h1>
@@ -78,5 +81,6 @@ export default function VideoForm() {
       />
       <div className="video-form-message">{message}</div>
     </form>
+    </div>
   );
 }

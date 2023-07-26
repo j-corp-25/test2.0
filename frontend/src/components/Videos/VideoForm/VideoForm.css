@@ -1,3 +1,13 @@
+.video-page-form-container {
+height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+
+}
+
+
 .video-form {
     display: flex;
     flex-direction: column;
