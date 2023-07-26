@@ -14,6 +14,11 @@
 #
 class User < ApplicationRecord
   has_secure_password
+  has_many :videos,
+  foreign_key: :author_id,
+  class_name: 'Video',
+  dependent: :destroy
+  
   validates :username,
     uniqueness: true,
     length: { in: 3..30 },
