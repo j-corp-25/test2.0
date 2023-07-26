@@ -7,6 +7,7 @@ import * as sessionActions from "../store/session";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import VideoForm from "./Videos/VideoForm/VideoForm"
+import VideoShow from "./Videos/VideoShow/VideoShow"  
 
 
 
@@ -20,6 +21,7 @@ function App() {
   return (
     <Router>
       <Switch>
+        <Route path="/videos/:videoId" component={VideoShow} />
         <Route path="/upload" component={VideoForm} />
         <Route path="/login" component={LoginFormPage} />
         <Route path="/signup" component={SignUpForm} />
