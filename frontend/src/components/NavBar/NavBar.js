@@ -14,6 +14,14 @@ const NavBar = () => {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
 
+  const demoLogin = () => {
+    const demoUser = {
+      credential: "jordy@email.com",
+      password: "123456789",
+    };
+    dispatch(sessionActions.login(demoUser));
+  };
+
   const handleClick = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
@@ -23,9 +31,19 @@ const NavBar = () => {
     return (
       <>
         <nav className="top-nav-bar normal-color">
-          <a href="">
+          <div className="left-nav-side-container">
+            <figure>
+              <img
+                className="settings-button-side"
+                src={settingimg}
+                alt="Button"
+              />
+            </figure>
+          </div>
+          <Link to="/">
             <img className="home-button" src={buttonImage} alt="Button" />
-          </a>
+          </Link>
+
           <form className="search-bar">
             <input
               className="main-nav-search"
@@ -41,6 +59,11 @@ const NavBar = () => {
           <div className="right-nav">
             <input type="button" value="Upload"></input>
             <input type="button" value="settings"></input>
+            <Link to="/upload">
+              <figure>
+                <input type="button" value="Upload"></input>
+              </figure>
+            </Link>
             <input type="button" value="Profile"></input>
             <div> </div>
             <input type="button" value="Sign Out" onClick={handleClick}></input>
@@ -52,26 +75,41 @@ const NavBar = () => {
   return (
     <>
       <nav className="top-nav-bar normal-color">
-        <a href="">
-          <img className="home-button" src={buttonImage} alt="Button" />
-        </a>
+        <div className="left-nav-side-container">
+          <figure>
+            <img
+              className="settings-button-side"
+              src={settingimg}
+              alt="Button"
+            />
+          </figure>
+        </div>
+        <Link to="/">
+            <img className="home-button" src={buttonImage} alt="Button" />
+          </Link>
         <form className="search-bar">
           <input
             className="main-nav-search"
             type="text"
             placeholder="Search"
           ></input>
-          <img
-            className="search-companion-nav"
-            src={searchImage}
-            alt="Button"
-          />
+
+          <div>
+            <input
+              className="search-companion-nav"
+              type="image"
+              src={searchImage}
+              alt="search-button"
+              name="submit"
+            ></input>
+          </div>
         </form>
         <div className="right-nav">
+          <input onClick={demoLogin} type="button" value="Demouser"></input>
           {/* <input type="button" value="Upload"></input> */}
           <div className="settings-container">
             <figure className="settings-subcontainer">
-              <img className="settings-button" src={settingimg} alt="Button"                             />
+              <img className="settings-button" src={settingimg} alt="Button" />
             </figure>
           </div>
           {/* <input type="button" value="Profile"></input> */}
