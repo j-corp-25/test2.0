@@ -1,6 +1,5 @@
 class Api::VideosController < ApplicationController
   before_action :require_login, only: [:create, :update, :destroy]
-
   def index
     @videos = Video.all
     render :index
