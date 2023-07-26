@@ -1,3 +1,5 @@
+
+import csrfFetch from "./csrf";
 export const RECEIVE_VIDEOS = "videos/RECEIVE_VIDEOS";
 export const RECEIVE_VIDEO = "videos/RECEIVE_VIDEO";
 export const REMOVE_VIDEO = "videos/REMOVE_VIDEO";
@@ -21,7 +23,7 @@ export const getVideos = (state) => {
 };
 
 export const fetchVideos = () => async (dispatch) => {
-    const response = await fetch('/api/videos');
+    const response = await csrfFetch('/api/videos');
     const data = await response.json();
 
     dispatch({
@@ -31,7 +33,7 @@ export const fetchVideos = () => async (dispatch) => {
 }
 
 export const fetchVideo = (videoId) => async (dispatch) => {
-    const response = await fetch(`/api/videos/${videoId}`);
+    const response = await csrfFetch(`/api/videos/${videoId}`);
     const data = await response.json();
 
     dispatch({
@@ -41,7 +43,7 @@ export const fetchVideo = (videoId) => async (dispatch) => {
 }
 
 export const createVideo = (video) => async (dispatch) => {
-    const response = await fetch("/api/videos", {
+    const response = await csrfFetch("/api/videos", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(video)
@@ -55,7 +57,7 @@ export const createVideo = (video) => async (dispatch) => {
 }
 
 export const updateVideo = (video) => async (dispatch) => {
-    const response = await fetch(`/api/videos/${video.id}`, {
+    const response = await csrfFetch(`/api/videos/${video.id}`, {
         method: "PATCH",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(video)

@@ -14,6 +14,7 @@ class Api::VideosController < ApplicationController
     @video = current_user.videos.new(video_params)
 
     if @video.save
+      # render json: { "video has been created": @video }, status: :created
       render :show
     else
       render json: { errors: @video.errors.full_messages }, status: :unprocessable_entity
