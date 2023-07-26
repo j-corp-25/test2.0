@@ -44,31 +44,39 @@ export const fetchVideo = (videoId) => async (dispatch) => {
 
 export const createVideo = (video) => async (dispatch) => {
     const response = await csrfFetch("/api/videos", {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(video)
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(video),
     });
-    const data = await response.json();
+    if (parseInt(response.headers.get("Content-Length")) > 0) {
+      const data = await response.json();
 
-    dispatch({
+      dispatch({
         type: RECEIVE_VIDEO,
-        video: data
-    })
-}
+        video: data,
+      });
+    }
+    return response;
+  };
 
-export const updateVideo = (video) => async (dispatch) => {
+  export const updateVideo = (video) => async (dispatch) => {
     const response = await csrfFetch(`/api/videos/${video.id}`, {
-        method: "PATCH",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(video)
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(video),
     });
-    const data = await response.json();
 
-    dispatch({
+    if (parseInt(response.headers.get("Content-Length")) > 0) {
+      const data = await response.json();
+
+      dispatch({
         type: RECEIVE_VIDEO,
-        video: data
-    });
-}
+        video: data,
+      });
+    }
+    
+    return response;
+  };
 
 export const deleteVideo = (videoId) => async (dispatch) => {
     await fetch(`/api/videos/${videoId}`, {

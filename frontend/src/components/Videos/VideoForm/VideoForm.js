@@ -46,7 +46,6 @@ export default function VideoForm(){
             <label>Description
                 <textarea value={description} name="description" onChange={(e) => {setDescription(e.target.value)}} />
             </label>
-            {/* TODO: Handle file upload */}
             <input type="submit" value={`${formType} Video`} />
             <div>{message}</div>
         </form>
